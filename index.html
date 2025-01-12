@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1933-1945 Üniversite Reformu | Bilim Mirasımız</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        .modal.active {
+            display: flex;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-blue-900 text-white">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="/" class="text-xl font-bold">Bilim Mirasımız</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#anasayfa">Ana Sayfa</a>
+                    <div class="relative group">
+                        <button class="hover:text-gray-300">Bilim Dalları</button>
+                        <div class="absolute hidden group-hover:block w-48 bg-white text-gray-800 shadow-lg rounded-md mt-2">
+                            <a href="#fizik" class="block px-4 py-2 hover:bg-gray-100">Fizik</a>
+                            <a href="#kimya" class="block px-4 py-2 hover:bg-gray-100">Kimya</a>
+                            <a href="#biyoloji" class="block px-4 py-2 hover:bg-gray-100">Biyoloji</a>
+                            <a href="#tip" class="block px-4 py-2 hover:bg-gray-100">Tıp</a>
+                        </div>
+                    </div>
+                    <a href="#bilimInsanlari">Bilim İnsanları</a>
+                    <a href="#bizKimiz">Biz Kimiz</a>
+                    <a href="#iletisim">İletişim</a>
+                </div>
+                <div class="flex space-x-4">
+                    <button onclick="toggleModal('girisModal')" class="px-4 py-2 bg-white text-blue-900 rounded">Giriş</button>
+                    <button onclick="toggleModal('kayitModal')" class="px-4 py-2 border rounded">Kayıt</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ana Banner -->
+    <div class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2">
+                    <h1 class="text-4xl font-bold mb-4">1933-1945 Üniversite Reformu</h1>
+                    <p class="text-lg mb-6">Nazi Almanyası'ndan kaçan bilim insanlarının Türkiye'deki bilimsel mirası ve modern Türk biliminin temellerinin atılması</p>
+                    <button class="bg-blue-900 text-white px-6 py-3 rounded">Daha Fazla Bilgi</button>
+                </div>
+                <div class="md:w-1/2 mt-6 md:mt-0">
+                    <img src="https://picsum.photos/500/300" alt="Üniversite Reformu" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bilim İnsanları Bölümü -->
+    <div class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Önemli Bilim İnsanları</h2>
+            
+            <!-- Curt Kosswig Bölümü -->
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/3">
+                        <img src="https://picsum.photos/300/400" alt="Curt Kosswig" class="rounded-lg shadow">
+                    </div>
+                    <div class="md:w-2/3 md:pl-8 mt-6 md:mt-0">
+                        <h3 class="text-2xl font-bold mb-4">Prof. Dr. Curt Kosswig (1903-1982)</h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-700">
+                                Alman zoolog ve biyolog Curt Kosswig, 1937 yılında Türkiye'ye gelmiş ve İstanbul Üniversitesi Fen Fakültesi'nde görev yapmıştır. Türkiye'nin biyolojik çeşitliliği üzerine önemli çalışmalar yürütmüştür.
+                            </p>
+                            <h4 class="font-bold">Önemli Katkıları:</h4>
+                            <ul class="list-disc pl-5">
+                                <li>Manyas Kuş Cenneti'nin (Kuş Gölü) koruma altına alınmasını sağlamıştır</li>
+                                <li>Türkiye'nin ilk hidrobiyloji araştırma merkezini kurmuştur</li>
+                                <li>Balık türleri üzerine kapsamlı araştırmalar yapmıştır</li>
+                                <li>Türk zooloji biliminin gelişmesine öncülük etmiştir</li>
+                            </ul>
+                            <h4 class="font-bold">Akademik Çalışmaları:</h4>
+                            <ul class="list-disc pl-5">
+                                <li>100'den fazla bilimsel makale yayınlamıştır</li>
+                                <li>Anadolu'nun fauna yapısını incelemiştir</li>
+                                <li>Birçok yeni tür keşfetmiştir</li>
+                                <li>Çok sayıda Türk bilim insanı yetiştirmiştir</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bilim Dalları Sekmeleri -->
+            <div class="mt-12">
+                <div class="flex border-b">
+                    <button onclick="openTab('fizik')" class="px-6 py-2 hover:bg-gray-100">Fizik</button>
+                    <button onclick="openTab('kimya')" class="px-6 py-2 hover:bg-gray-100">Kimya</button>
+                    <button onclick="openTab('biyoloji')" class="px-6 py-2 hover:bg-gray-100">Biyoloji</button>
+                    <button onclick="openTab('tip')" class="px-6 py-2 hover:bg-gray-100">Tıp</button>
+                </div>
+
+                <div id="fizik" class="tab-content p-6">
+                    <h3 class="text-xl font-bold mb-4">Fizik Alanındaki Gelişmeler</h3>
+                    <p>Prof. Dr. Harry Dember'in öncülüğünde kurulan fizik laboratuvarları ve yürütülen deneysel çalışmalar, Türkiye'de modern fiziğin temellerini atmıştır. Özellikle optik ve katıhal fiziği alanlarında önemli araştırmalar yapılmıştır.</p>
+                </div>
+
+                <div id="kimya" class="tab-content p-6">
+                    <h3 class="text-xl font-bold mb-4">Kimya Alanındaki Çalışmalar</h3>
+                    <p>Prof. Dr. Fritz Arndt'ın önderliğinde organik kimya alanında çığır açıcı çalışmalar yapılmış, modern laboratuvar teknikleri Türkiye'ye getirilmiştir. Arndt-Eistert sentezi gibi önemli keşifler bu dönemde gerçekleştirilmiştir.</p>
+                </div>
+
+                <div id="biyoloji" class="tab-content p-6">
+                    <h3 class="text-xl font-bold mb-4">Biyoloji ve Zooloji Çalışmaları</h3>
+                    <p>Prof. Dr. Curt Kosswig'in çalışmaları, Türkiye'nin biyolojik zenginliğinin keşfedilmesinde ve korunmasında önemli rol oynamıştır. Kurulan araştırma istasyonları halen aktif olarak çalışmalarını sürdürmektedir.</p>
+                </div>
+
+                <div id="tip" class="tab-content p-6">
+                    <h3 class="text-xl font-bold mb-4">Tıp Alanındaki İlerlemeler</h3>
+                    <p>Modern tıp eğitiminin Türkiye'de yerleşmesinde önemli rol oynayan Alman bilim insanları, cerrahi tekniklerden laboratuvar uygulamalarına kadar pek çok alanda yenilikler getirmişlerdir.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- İletişim Bölümü -->
+    <div class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">İletişim</h2>
+            <div class="max-w-2xl mx-auto">
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Ad Soyad</label>
+                        <input type="text" class="w-full p-3 border rounded">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">E-posta</label>
+                        <input type="email" class="w-full p-3 border rounded">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Mesajınız</label>
+                        <textarea class="w-full p-3 border rounded" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="bg-blue-900 text-white px-6 py-3 rounded w-full">Gönder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="font-bold mb-4">Bilim Mirasımız</h4>
+                    <p>1933-1945 Üniversite Reformu ve Türk bilim tarihine ışık tutan dijital platform</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Hızlı Erişim</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-gray-300">Ana Sayfa</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Bilim İnsanları</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Araştırma Merkezleri</a></li>
+                        <li><a href="#" class="hover:text-gray-300">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">İletişim</h4>
+                    <p>E-posta: info@bilimmirasimiz.org</p>
+                    <p>Tel: +90 212 XXX XX XX</p>
+                    <p>Adres: İstanbul Üniversitesi, Beyazıt, İstanbul</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p>&copy; 2025 Bilim Mirasımız. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleModal(modalId) {
+            document.getElementById(modalId).classList.toggle('active');
+        }
+
+        function openTab(tabName) {
+            // Tüm tab içeriklerini gizle
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Seçilen tabı göster
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // Sayfa yüklendiğinde ilk tabı aç
+        document.addEventListener('DOMContentLoaded', function() {
+            openTab('fizik');
+        });
+    </script>
+</body>
+</html>
